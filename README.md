@@ -1,3 +1,5 @@
 # Felrapport
 
 1. Programmet gick inte att starta. Jag läste felkoden och förstod att det hade med listan att göra då jag såg berörda kodrader. Programmet klarade inte av att hantera den tomma raden i txt-filen. Jag la till en if-sats i Load som hoppar över eventuell tom rad.
+
+2. Jag testade att köra debuggern med breakpoint på rad 84 i Load för att se om jag kan få reda på varför inte varunamnen skrivs ut. Det kraschade och jag fick svar att filen items.txt inte hittas. Jag provade att göra try catch och döpte om filen för att testa. Nu säger den till om det inte finns någon fil istället för att krascha. Jag hittade ett fel, men inte det jag sökte efter. 

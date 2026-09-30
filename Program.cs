@@ -22,7 +22,7 @@ while (true)
         string name = Console.ReadLine();
         Console.Write("Pris: ");
         int price = int.Parse(Console.ReadLine());
-        list.Add(new Item(price, name));
+        list.Add(new Item(name, price));
     }
     else if (choice == 2)
     {

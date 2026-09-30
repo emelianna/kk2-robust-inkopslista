@@ -82,12 +82,22 @@ class ShoppingList
     public void Load() 
     {
         string text = File.ReadAllText(path); //ReadAllText öppnar och läser en textfil
-        string[] lines = text.Split('\n'); //Split delar en string till substrings
+        string[] lines = text.Split('\n'); //Split delar en string till substrings med ny rad
 
+        
         foreach (string line in lines)
         {
+            if (!string.IsNullOrWhiteSpace(line)) //Gör så att tom rad hoppas över 
+            {
+            
             string[] parts = line.Split(';');
-            items.Add(new Item(int.Parse(parts[0]),parts[1])); //Ger felmeddelande: "Index was outside the bounds of the array. at ShoppingList.Load() at Program.<Main>$(String[] args)"
+            items.Add(new Item(parts[1], int.Parse(parts[0]))); //Ger felmeddelande: "Index was outside the bounds of the array. at ShoppingList.Load() at Program.<Main>$(String[] args)"
         }
+
+        else
+            {
+                continue;
+            }
     }
+}
 }

@@ -4,7 +4,7 @@ class Item
     public string Name { get; set; }
     public int Price { get; set; }
 
-    public Item(int price, string name) //Ändrade ordning så det funkar med items.txt
+    public Item(string name, int price ) //Ändrade tillbaka ordningen...
     {
         Name = name;
         Price = price;

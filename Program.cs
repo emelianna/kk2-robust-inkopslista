@@ -15,13 +15,14 @@ while (true)
 
     int choice = int.Parse(Console.ReadLine());
 
+
     if (choice == 1)
     {
         Console.Write("Namn: ");
         string name = Console.ReadLine();
         Console.Write("Pris: ");
         int price = int.Parse(Console.ReadLine());
-        list.Add(new Item(name, price));
+        list.Add(new Item(price, name));
     }
     else if (choice == 2)
     {

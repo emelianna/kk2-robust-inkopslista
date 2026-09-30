@@ -87,7 +87,7 @@ class ShoppingList
         foreach (string line in lines)
         {
             string[] parts = line.Split(';');
-            items.Add(new Item(parts[1], int.Parse(parts[1]))); //Ger felmeddelande: "Index was outside the bounds of the array. at ShoppingList.Load() at Program.<Main>$(String[] args)"
+            items.Add(new Item(int.Parse(parts[0]),parts[1])); //Ger felmeddelande: "Index was outside the bounds of the array. at ShoppingList.Load() at Program.<Main>$(String[] args)"
         }
     }
 }

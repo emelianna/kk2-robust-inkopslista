@@ -1,6 +1,6 @@
 ShoppingList list = new ShoppingList("items.txt");
-list.Load();
-
+list.Load(); //felmeddelande kopplat till items.Add(new Item(parts[1], int.Parse(parts[0]))); i Load
+//"Index was outside the bounds of the array. at ShoppingList.Load() at Program.<Main>$(String[] args)"
 while (true)
 {
     Console.WriteLine();

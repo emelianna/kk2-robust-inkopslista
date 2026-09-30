@@ -79,15 +79,15 @@ class ShoppingList
     }
 
     // Reads the file back into the list.
-    public void Load()
+    public void Load() 
     {
-        string text = File.ReadAllText(path);
-        string[] lines = text.Split('\n');
+        string text = File.ReadAllText(path); //ReadAllText öppnar och läser en textfil
+        string[] lines = text.Split('\n'); //Split delar en string till substrings
 
         foreach (string line in lines)
         {
             string[] parts = line.Split(';');
-            items.Add(new Item(parts[1], int.Parse(parts[0])));
+            items.Add(new Item(parts[1], int.Parse(parts[1]))); //Ger felmeddelande: "Index was outside the bounds of the array. at ShoppingList.Load() at Program.<Main>$(String[] args)"
         }
     }
 }

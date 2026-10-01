@@ -12,8 +12,14 @@ while (true)
     Console.WriteLine("5. Avsluta");
     Console.Write("Välj: ");
 
-    int choice = int.Parse(Console.ReadLine());
-    int price;    
+    int choice;
+    int price;
+    int number;   
+
+     while (!int.TryParse(Console.ReadLine(), out choice)) 
+        {
+           Console.Write("Skriv en siffra mellan 1-5: "); 
+        } 
 
     if (choice == 1)
     {
@@ -33,8 +39,19 @@ while (true)
     else if (choice == 2)
     {
         Console.Write("Nummer: ");
-        int number = int.Parse(Console.ReadLine());
+        
+         while (!int.TryParse(Console.ReadLine(), out number)) 
+        {
+           Console.Write("Skriv siffra för vilken vara du vill ta bort: "); 
+        }
+      try
+      {
         list.RemoveAt(number);
+      }
+      catch (ArgumentOutOfRangeException)
+        {
+            Console.WriteLine($"Det finns ingen vara med nummer {number}.");
+        }
     }
     else if (choice == 3)
     {

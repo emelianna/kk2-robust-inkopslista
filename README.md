@@ -6,4 +6,8 @@
 
 3. Felet med att varunamnet inte skrevs ut berodde på att det slank med \r intill varje varunamn i Load. \r läggs till i Save tillsammans med \n. Det senare tas bort då det delas upp. För att få bort \r la jag till Trim(). till parts[1]. Det som hände tidigare var att markören hoppade till början av raden igen då den stötte på \r. Den skrev då över varunamnet med priset.
 
-4. Totalpriset stämde inte. Det visade sig att index 0 hoppades över eftersom räknaren i Total startade på 1 istället för 0. Nu räknas alla varor med. 
+4. Totalpriset stämde inte. Det visade sig att index 0 hoppades över eftersom räknaren i Total startade på 1 istället för 0. Nu räknas alla varor med.
+
+5. Fixade så att felmeddelande ges om man inte skriver positivt heltal i pris när ny vara läggs till. Använde mig av whileloop och TryParse efter tips i artikel på bloggen.
+
+   

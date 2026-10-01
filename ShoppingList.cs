@@ -4,9 +4,9 @@ class ShoppingList
     private List<Item> items = new List<Item>();
     private string path;
 
-    public ShoppingList(string path)
+    public ShoppingList(string path) 
     {
-        this.path = path;
+        this.path = path; 
     }
 
     public void Add(Item item)
@@ -51,7 +51,7 @@ class ShoppingList
     {
         for (int i = 0; i < items.Count; i++)
         {
-            Console.WriteLine($"{i + 1}. {items[i]}");
+            Console.WriteLine($"{i + 1}. {items[i]}"); //items[i] är ett Itemobjekt. I Item.cs finns override string ToString() som bestämmer hur utskriften ska se ut
         }
 
         Console.WriteLine($"Totalt: {Total()} kr");
@@ -69,7 +69,7 @@ class ShoppingList
 
         try
         {
-            File.WriteAllText(path, string.Join("\r\n", lines) + "\r\n");
+            File.WriteAllText(path, string.Join("\r\n", lines) + "\r\n"); //sätter ihop alla rader till en lång text och lägger \r\n mellan varje rad. \r\n på slutet gör att filen slutar med en tom rad
         }
         catch
         {
@@ -81,21 +81,21 @@ class ShoppingList
     // Reads the file back into the list.
  public void Load()
 {
-    try
+    try //försöker läsa in filen och lägga till varorna
     {
-        string text = File.ReadAllText(path);
-        string[] lines = text.Split('\n');
+        string text = File.ReadAllText(path); //items.txt läses och innehållet returneras som en sträng
+        string[] lines = text.Split('\n'); //arrayen lines skapas med delar av den långa strängen ovan, i rader vid varje \n. Ser tex ut så här: 15;Mjölk\r. \r hänger med från Save. \n tas bort när den delar
 
         foreach (string line in lines)
         {
-            if (!string.IsNullOrWhiteSpace(line)) // hoppa över tomma rader
+            if (!string.IsNullOrWhiteSpace(line)) //nedan görs bara med rader med innehåll, ej tomma rader
             {
-                string[] parts = line.Split(';');
-                items.Add(new Item(parts[1], int.Parse(parts[0])));
+                string[] parts = line.Split(';'); //en rad i taget delas upp vid varje ;. "15;Mjölk\r" blir ["15", "Mjölk\r"]. ; tas bort när den delar
+                items.Add(new Item(parts[1].Trim(), int.Parse(parts[0]))); //ett nytt item bestående av del på index 1 och index 0 skapas. parts[1] är en string (Mjölk\r) och parts[0] görs om till int från string (15). Trim används för att ta bort \r i slutet av parts[1]
             }
         }
     }
-    catch (FileNotFoundException)
+    catch (FileNotFoundException) //om filen saknas hoppar programmet hit, skriver ut ett meddelande och fortsätter med en tom lista
     {
         Console.WriteLine("Ingen sparad lista hittades. Du börjar med en tom lista.");
     }

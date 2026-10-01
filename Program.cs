@@ -13,15 +13,22 @@ while (true)
     Console.Write("Välj: ");
 
     int choice = int.Parse(Console.ReadLine());
-
+    int price;    
 
     if (choice == 1)
     {
         Console.Write("Namn: ");
         string name = Console.ReadLine();
+
         Console.Write("Pris: ");
-        int price = int.Parse(Console.ReadLine());
+        
+        while (!int.TryParse(Console.ReadLine(), out price) || price < 0) //Om inte ett positivt heltal skrivs så för användaren meddelande om det. Annars läggs det till direkt
+        {
+           Console.Write("Skriv ett giltigt, positivt heltal: "); 
+        }
         list.Add(new Item(name, price));
+        
+        
     }
     else if (choice == 2)
     {

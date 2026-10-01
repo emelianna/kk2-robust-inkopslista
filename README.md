@@ -10,4 +10,6 @@
 
 5. Fixade så att felmeddelande ges om man inte skriver positivt heltal i pris när ny vara läggs till. Använde mig av whileloop och TryParse efter tips i artikel på bloggen.
 
+6. Liknande ovan under choice två där man tar bort vara. Man får nu felmeddelande om man skriver annat än siffra (mha TryParse) och try catch har använts för felmeddelande om siffra utanför listan väljs. Även felmeddelande mha TryParse i menyvalet. 
+
    

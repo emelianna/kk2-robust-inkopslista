@@ -1,5 +1,5 @@
 ShoppingList list = new ShoppingList("items.txt");
-list.Load(); 
+list.Load();
 while (true)
 {
     Console.WriteLine();
@@ -14,12 +14,12 @@ while (true)
 
     int choice;
     int price;
-    int number;   
+    int number;
 
-     while (!int.TryParse(Console.ReadLine(), out choice)) 
-        {
-           Console.Write("Skriv en siffra mellan 1-5: "); 
-        } 
+    while (!int.TryParse(Console.ReadLine(), out choice))
+    {
+        Console.Write("Skriv en siffra mellan 1-5: ");
+    }
 
     if (choice == 1)
     {
@@ -27,14 +27,17 @@ while (true)
         string name = Console.ReadLine();
 
         Console.Write("Pris: ");
-        
+
         while (!int.TryParse(Console.ReadLine(), out price) || price < 0) //Om inte ett positivt heltal skrivs så för användaren meddelande om det. Annars läggs det till direkt
         {
-           Console.Write("Skriv ett giltigt, positivt heltal: "); 
+            Console.Write("Skriv ett giltigt, positivt heltal: ");
         }
-        try 
+        try
         {
-        list.Add(new Item(name, price));
+            if (!list.Add(new Item(name, price)))
+            {
+                Console.WriteLine("Du är utanför budget, varan kan inte läggas till.");
+            }
         }
 
         catch (ArgumentOutOfRangeException)
@@ -46,21 +49,21 @@ while (true)
         {
             Console.WriteLine("Namnet får inte vara tomt.");
         }
-        
+
     }
     else if (choice == 2)
     {
         Console.Write("Nummer: ");
-        
-         while (!int.TryParse(Console.ReadLine(), out number)) 
+
+        while (!int.TryParse(Console.ReadLine(), out number))
         {
-           Console.Write("Skriv siffra för vilken vara du vill ta bort: "); 
+            Console.Write("Skriv siffra för vilken vara du vill ta bort: ");
         }
-      try
-      {
-        list.RemoveAt(number);
-      }
-      catch (ArgumentOutOfRangeException)
+        try
+        {
+            list.RemoveAt(number);
+        }
+        catch (ArgumentOutOfRangeException)
         {
             Console.WriteLine($"Det finns ingen vara med nummer {number}.");
         }

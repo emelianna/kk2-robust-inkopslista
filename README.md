@@ -18,3 +18,8 @@
 # Designval
 
 Jag valde att göra så att Add returnerar false när användaren försöker lägga till en vara som inte hamnar inom budget. Att försöka lägga till en vara som kostar mer än vad det finns pengar till är en rimlig situation som skiljer sig från att tex lägga in en vara utan namn. Det är en ganska förväntad situation upplever jag som bör hända många gånger när ett sånt program används. Inget fel i programmet som skulle leda till någon krasch. Program.cs kontrollerar svaret från Add med en if och skriver ut meddelande när det är false så att användaren har koll på att varan inte lagts till. 
+
+
+   # Klassdiagram
+
+   ![Klassdiagram](klass-diagram.drawio.png)

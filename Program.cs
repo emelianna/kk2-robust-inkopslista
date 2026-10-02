@@ -28,7 +28,7 @@ while (true)
 
         Console.Write("Pris: ");
 
-        while (!int.TryParse(Console.ReadLine(), out price) || price < 0) //Om inte ett positivt heltal skrivs så för användaren meddelande om det. Annars läggs det till direkt
+        while (!int.TryParse(Console.ReadLine(), out price) || price < 0) //Om inte ett positivt heltal skrivs så får användaren meddelande om det. Annars läggs det till direkt
         {
             Console.Write("Skriv ett giltigt, positivt heltal: ");
         }

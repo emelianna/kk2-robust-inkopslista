@@ -11,7 +11,7 @@ class ShoppingList
 
     public void Add(Item item)
     {
-        items.Add(item);
+        items.Add(item);            
     }
 
     // Removes the item the user sees as number 1, 2, 3 ...
@@ -70,12 +70,19 @@ class ShoppingList
         try
         {
             File.WriteAllText(path, string.Join("\r\n", lines) + "\r\n"); //sätter ihop alla rader till en lång text och lägger \r\n mellan varje rad. \r\n på slutet gör att filen slutar med en tom rad. path visar vilken fil detta gäller. WriteAllText skapar en fil om det inte finns någon redan
+            Console.WriteLine("Listan är sparad.");
         }
-        catch
+        catch (IOException ex) //Fel vid läsning eller skrivning av filer
         {
+            Console.WriteLine($"Listan kunde inte sparas: {ex.Message}"); //Tar med C# egen beskrivning av vad som gick fel i ex.Message
+        }
+        
+        catch (UnauthorizedAccessException) //Du har inte tillåtelse att skriva i filen, kan tex vara skrivskyddad
+        {
+            Console.WriteLine("Du saknar behörighet till filen listan sparas i, listan gick inte att spara.");
         }
 
-        Console.WriteLine("Listan är sparad.");
+        
     }
 
     // Reads the file back into the list.

@@ -6,8 +6,15 @@ class Item
 
     public Item(string name, int price ) 
     {
+
+    if (price < 0)
+    throw new ArgumentOutOfRangeException(nameof(price), "Priset får inte vara negativt."); //Item kastar undantag
+        if (string.IsNullOrWhiteSpace(name))
+   throw new ArgumentException("Namnet får inte vara tomt.", nameof(name));
+
         Name = name;
         Price = price;
+
     }
 
     public override string ToString()
@@ -15,3 +22,12 @@ class Item
         return $"{Name} - {Price} kr";
     }
 }
+
+
+/*static decimal CalculateDiscount(decimal price)
+{
+    if (price < 0)
+        throw new ArgumentOutOfRangeException(nameof(price), "Priset får inte vara negativt.");
+
+    return price * 0.10m;
+}*/

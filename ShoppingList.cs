@@ -69,7 +69,7 @@ class ShoppingList
 
         try
         {
-            File.WriteAllText(path, string.Join("\r\n", lines) + "\r\n"); //sätter ihop alla rader till en lång text och lägger \r\n mellan varje rad. \r\n på slutet gör att filen slutar med en tom rad. path visar vilken fil detta gäller. WriteAllText skapar en fil om det inte finns någon redan
+            File.WriteAllText(path, string.Join("\r\n", lines) + "\r\n"); //sätter ihop alla rader till en lång text och lägger \r\n mellan varje rad. \r\n på slutet gör att filen slutar med en tom rad. path visar vilken fil detta gäller. WriteAllText skapar en fil om det inte finns någon redan. Den skapar ingen ny vid problem med befintlig. 
             Console.WriteLine("Listan är sparad.");
         }
         catch (IOException ex) //Fel vid läsning eller skrivning av filer

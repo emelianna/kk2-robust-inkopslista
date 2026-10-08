@@ -36,7 +36,9 @@ while (true)
         {
             if (!list.Add(new Item(name, price)))
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Du är utanför budget, varan kan inte läggas till.");
+                Console.ResetColor();
             }
         }
 

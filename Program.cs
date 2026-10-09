@@ -34,7 +34,7 @@ while (true)
         }
         try
         {
-            if (!list.Add(new Item(name, price)))
+            if (!list.Add(new Item(name, price))) //Om ny vara inte uppfyller kravet inom budget (Add returnerar false) och inte läggs till så skrivs meddelandet nedan ut. 
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Du är utanför budget, varan kan inte läggas till.");

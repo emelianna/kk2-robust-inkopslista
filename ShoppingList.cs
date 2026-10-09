@@ -11,7 +11,7 @@ class ShoppingList
         this.path = path;
     }
 
-    public bool Add(Item item)    //Om priset på varan tillsammans med redan köpta varor ryms inom budget läggs varan till. Annars skickas värde false till Program.cs och meddelande skrivs ut
+    public bool Add(Item item)    //Om priset på varan tillsammans med redan köpta varor ryms inom budget läggs varan till. Annars returneras false till Program.cs och Program.cs skriver ut ett meddelande
     {
         if (Total() + item.Price <= budgetLimit)
         {
